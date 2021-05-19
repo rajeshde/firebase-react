@@ -19,11 +19,11 @@ const Users = () => {
 
   const renderUsers = () => {
     if (users === undefined) {
-      return <span>Loading...</span>;
+      return <span className="margin-top-30">Loading...</span>;
     }
 
     if (users.length === 0) {
-      return <span>No records found</span>;
+      return <span className="margin-top-30">No records found</span>;
     }
 
     return (
@@ -56,8 +56,10 @@ const Users = () => {
 
   return (
     <div>
-      <CreateUser />
-      {users && users.length && <DownloadUsers data={users} />}
+      <div className="margin-bottom-30">
+        <CreateUser />
+        {users && users.length ? <DownloadUsers data={users} /> : null}
+      </div>
       <br />
       {renderUsers()}
     </div>
