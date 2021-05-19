@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import { firebase } from "../helper";
 import CreateUser from "./CreateUser";
+import UpdateUser from "./UpdateUser";
+import DeleteUser from "./DeleteUser";
 
 const Users = () => {
   const [users, setUsers] = useState(undefined);
@@ -28,6 +30,8 @@ const Users = () => {
         {users.map(({ key, name, email }) => (
           <li key={key}>
             {name}, {email}
+            <UpdateUser id={key} name={name} email={email} />
+            <DeleteUser id={key} />
           </li>
         ))}
       </ul>
