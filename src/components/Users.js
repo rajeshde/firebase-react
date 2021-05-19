@@ -4,6 +4,7 @@ import { firebase } from "../helper";
 import CreateUser from "./CreateUser";
 import UpdateUser from "./UpdateUser";
 import DeleteUser from "./DeleteUser";
+import DownloadUsers from "./DownloadUsers";
 
 const Users = () => {
   const [users, setUsers] = useState(undefined);
@@ -56,6 +57,7 @@ const Users = () => {
   return (
     <div>
       <CreateUser />
+      {users && users.length && <DownloadUsers data={users} />}
       <br />
       {renderUsers()}
     </div>

@@ -22,7 +22,7 @@ const CreateUser = () => {
     <>
       <button
         onClick={onCreate}
-        className="btn btn-primary margin-top-30"
+        className="btn btn-primary margin-right-10"
         type="button"
       >
         Add user
