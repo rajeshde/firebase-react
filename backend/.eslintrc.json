@@ -1,0 +1,50 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["prettier", "plugin:promise/recommended", "plugin:import/errors", "plugin:import/warnings"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier", "promise"],
+  "rules": {
+    "max-len": [
+      1,
+      140,
+      2,
+      {
+        "ignoreComments": true
+      }
+    ],
+    "import/no-cycle": [2, { "maxDepth": 1 }],
+    "no-underscore-dangle": 0,
+    "one-var": 0,
+    "no-shadow": 0,
+    "no-use-before-define": 0,
+    "default-case": 0,
+    "no-unused-expressions": 0,
+    "implicit-arrow-linebreak": [0, "beside"],
+    "object-curly-newline": 0,
+    "no-trailing-spaces": 2,
+    "operator-linebreak": [2, "after", { "overrides": { "?": "after" } }],
+    "no-plusplus": 0,
+    "semi": 0,
+    "comma-dangle": 2,
+    "import/no-unresolved": "error",
+    "import/order": [
+      "warn",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always-and-inside-groups"
+      }
+    ],
+    "prettier/prettier": ["error"]
+  }
+}
