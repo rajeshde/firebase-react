@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Modal from "./Modal";
 import { showToastMessage } from "../helper";
@@ -18,13 +18,17 @@ const validate = ({ email }) => {
 const UserForm = (props) => {
   const [email, setEmail] = useState(props.email || "");
 
+  useEffect(() => {
+    setEmail(props.email);
+  }, [props.email]);
+
   const onClickCancel = () => {
-    setEmail("");
+    setEmail(props.email);
     props.onClose();
   };
   const onClickSave = () => {
     if (validate({ email })) {
-      setEmail("");
+      setEmail(props.email);
       props.onSave({ email });
     }
   };
