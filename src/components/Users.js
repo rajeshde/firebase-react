@@ -26,15 +26,30 @@ const Users = () => {
     }
 
     return (
-      <ul>
-        {users.map(({ key, name, email }) => (
-          <li key={key}>
-            {name}, {email}
-            <UpdateUser id={key} name={name} email={email} />
-            <DeleteUser id={key} />
-          </li>
-        ))}
-      </ul>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(({ id, name, email }) => (
+            <tr key={id}>
+              <td>{name}</td>
+              <td>{email}</td>
+              <td>
+                <UpdateUser id={id} name={name} email={email} />
+              </td>
+              <td>
+                <DeleteUser id={id} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     );
   };
 

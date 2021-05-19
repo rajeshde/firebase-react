@@ -18,7 +18,11 @@ const UpdateUser = ({ id, name, email }) => {
 
   return (
     <>
-      <button onClick={onClickUpdate} className="btn btn-danger" type="button">
+      <button
+        onClick={onClickUpdate}
+        className="btn btn-secondary"
+        type="button"
+      >
         Update
       </button>
       <UserForm

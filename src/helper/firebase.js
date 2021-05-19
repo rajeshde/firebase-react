@@ -26,7 +26,7 @@ const onUpdate = (callback) => {
   firebaseDb.child(USER_TABLE_NAME).on("value", (snapshot) => {
     const data = snapshot.val();
     if (data != null) {
-      callback(Object.keys(data).map((key) => ({ key, ...data[key] })));
+      callback(Object.keys(data).map((id) => ({ id, ...data[id] })));
     } else {
       callback([]);
     }
