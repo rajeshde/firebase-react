@@ -27,4 +27,4 @@ yarn-error.log*
 
 
 # firebase secure files
-src/serviceAccountKey.json
+serviceAccountKey.json
