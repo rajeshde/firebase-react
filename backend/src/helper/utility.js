@@ -16,4 +16,6 @@ const controller =
     }
   }
 
-export { controller, getAPIResponse, getCatchAPIResponse }
+const isValidEmailAddress = (text) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(text)
+
+export { controller, getAPIResponse, getCatchAPIResponse, isValidEmailAddress }
