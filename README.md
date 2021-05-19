@@ -1,12 +1,3 @@
-# Setting up environment file
-
-Create a `.env` file under the project root directory. Paste the content of `.example.env` file, in `.env` file. Update the values as per your firebase project confiuration.
-
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
 ## Available Scripts
 
 In the project directory, you can run:

@@ -12,7 +12,7 @@ node_modules
 /build
 
 # envirnoment
-.env
+#.env
 
 # misc
 .DS_Store
@@ -27,4 +27,4 @@ yarn-error.log*
 
 
 # firebase secure files
-serviceAccountKey.json
+#serviceAccountKey.json
