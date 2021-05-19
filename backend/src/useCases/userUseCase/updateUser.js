@@ -1,7 +1,7 @@
 const updateUser =
   ({ update, isValidEmailAddress }) =>
   (httpRequest) => {
-    const { uid, email, password } = httpRequest.body
+    const { uid, email } = httpRequest.body
 
     if (!uid) {
       return {
@@ -9,10 +9,10 @@ const updateUser =
         message: 'uid is mandatory'
       }
     }
-    if (!email || !password) {
+    if (!email) {
       return {
         isSuccess: false,
-        message: 'Email and password is mandatory'
+        message: 'Email is mandatory'
       }
     }
     if (!isValidEmailAddress(email)) {
@@ -22,7 +22,7 @@ const updateUser =
       }
     }
 
-    return update(uid, { email, password })
+    return update(uid, { email })
       .then((uid) => ({
         isSuccess: true,
         data: uid

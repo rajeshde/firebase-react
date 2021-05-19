@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
-import { firebase } from "../helper";
+import { firebase, showToastMessage } from "../helper";
 import CreateUser from "./CreateUser";
 import UpdateUser from "./UpdateUser";
 import DeleteUser from "./DeleteUser";
@@ -9,13 +9,21 @@ import DownloadUsers from "./DownloadUsers";
 const Users = () => {
   const [users, setUsers] = useState(undefined);
 
-  useEffect(() => {
-    firebase.onUpdate(setUsers);
-
-    return () => {
-      firebase.detachListener();
-    };
+  const onUserUpdate = useCallback(() => {
+    firebase
+      .onUpdate()
+      .then((data) => setUsers(data.data))
+      .catch((err) => {
+        showToastMessage(err.message);
+      });
   }, []);
+
+  useEffect(() => {
+    onUserUpdate();
+    // return () => {
+    //   firebase.detachListener();
+    // };
+  }, [onUserUpdate]);
 
   const renderUsers = () => {
     if (users === undefined) {
@@ -30,22 +38,26 @@ const Users = () => {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Name</th>
+            <th scope="col">UID</th>
             <th scope="col">Email</th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          {users.map(({ id, name, email }) => (
-            <tr key={id}>
-              <td>{name}</td>
+          {users.map(({ uid, email }) => (
+            <tr key={uid}>
+              <td>{uid}</td>
               <td>{email}</td>
               <td>
-                <UpdateUser id={id} name={name} email={email} />
+                <UpdateUser
+                  uid={uid}
+                  email={email}
+                  onUserUpdate={onUserUpdate}
+                />
               </td>
               <td>
-                <DeleteUser id={id} />
+                <DeleteUser uid={uid} onUserUpdate={onUserUpdate} />
               </td>
             </tr>
           ))}
@@ -57,7 +69,7 @@ const Users = () => {
   return (
     <div>
       <div className="margin-bottom-30">
-        <CreateUser />
+        <CreateUser onUserUpdate={onUserUpdate} />
         {users && users.length ? <DownloadUsers data={users} /> : null}
       </div>
       <br />

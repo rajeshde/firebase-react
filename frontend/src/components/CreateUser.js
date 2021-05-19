@@ -1,21 +1,29 @@
 import { useState } from "react";
 
 import { showToastMessage, firebase } from "../helper";
-import UserForm from "./UserForm";
+import CreateUserForm from "./CreateUserForm";
 
-const CreateUser = () => {
+const CreateUser = ({ onUserUpdate }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onCreate = () => setIsOpen(true);
   const handleOnClose = () => setIsOpen(false);
   const handleOnSave = (obj) => {
-    firebase.create(obj, (err) => {
-      if (!err) {
-        handleOnClose();
-        return;
-      }
-      showToastMessage(err.message || "");
-    });
+    // firebase.create(obj, (err) => {
+    //   if (!err) {
+    //     handleOnClose();
+    //     return;
+    //   }
+    //   showToastMessage(err.message || "");
+    // });
+
+    firebase
+      .create(obj)
+      .then(() => setTimeout(onUserUpdate, 1000))
+      .catch((err) => {
+        showToastMessage(err.message || "");
+      })
+      .finally(() => handleOnClose());
   };
 
   return (
@@ -27,7 +35,11 @@ const CreateUser = () => {
       >
         Add user
       </button>
-      <UserForm isOpen={isOpen} onSave={handleOnSave} onClose={handleOnClose} />
+      <CreateUserForm
+        isOpen={isOpen}
+        onSave={handleOnSave}
+        onClose={handleOnClose}
+      />
     </>
   );
 };

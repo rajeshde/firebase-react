@@ -5,8 +5,8 @@ const DownloadUsers = (props) => {
 
   return (
     <CsvDownload
-      data={data.map(({ name, email }) => ({ name, email }))}
-      filename={`${process.env.REACT_APP_USER_TABLE_NAME}.csv`}
+      data={data.map(({ uid, email }) => ({ uid, email }))}
+      filename="users.csv"
       className="btn btn-success"
     >
       Download users
