@@ -11,6 +11,8 @@ npm start
 
 Now the backend server is running on [http://localhost:3101](http://localhost:3101)
 
+<p>&nbsp;</p>
+
 ### Start frontend server
 
 From project's root directory, run the following commands:
