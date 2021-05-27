@@ -29,33 +29,29 @@ Replace `/backend/serviceAcccountKey.json` with your new `serviceAcccountKey.jso
 
 <p>&nbsp;</p>
 
-## Start backend server
+## Start server
 
-From project's root directory, **open a terminal** and run the following command:
+From project's root directory, **open a terminal** and run the following commands:
 
 ```
-npm run start-backend
+npm install
+npm run start
 ```
 
 It will leave you with the below information in the terminal.
+
+Successful backend backend screenshot
+<br />
 ![alt text](./backend-serve-success.png)
 
-**Do not close this terminal. Otherwise backend will stop.**
+<br />
 
-<p>&nbsp;</p>
+Successful frontend screenshot
+<br />
 
-## Start frontend server
-
-From project's root directory, **open a new terminal** and run the following command:
-
-```
-npm run start-frontend
-```
-
-It will leave you with the below information in the terminal.
 ![alt text](./frontend-serve-success.png)
 
-**Do not close this terminal. Otherwise frontend will stop.**
+**Do not close this terminal**
 
 <p>&nbsp;</p>
 

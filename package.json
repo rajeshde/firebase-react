@@ -4,6 +4,10 @@
   "private": true,
   "scripts": {
     "start-backend": "cd backend && npm install && npm run start",
-    "start-frontend": "cd frontend && npm install && npm run start"
+    "start-frontend": "cd frontend && npm install && npm run start",
+    "start": "concurrently -kill-others \"npm run start-backend\" \"npm run start-frontend\""
+  },
+  "dependencies": {
+    "concurrently": "^6.2.0"
   }
 }
