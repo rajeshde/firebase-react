@@ -4,29 +4,56 @@
 
 Install [https://nodejs.org/en/](NodeJS LTE version)
 
-### Start backend server
-
-From project's root directory, run the following commands:
+Run the following command in terminal.
 
 ```
-cd backend
-npm i
-npm start
+npm i -g serve
 ```
-
-Now the backend server is running on [http://localhost:3101](http://localhost:3101)
 
 <p>&nbsp;</p>
 
-### Start frontend server
+## Setting up Firebase
 
-From project's root directory, run the following commands:
+Copy your firebase database url. Paste it in the `/backend/.env` file against key `FIREBASE_DATABASE_URL`. **Do not change the key.**
+
+Open your Firebase Console. Select your project. Go to Project settings and select Service accounts tab.
+<br />
+Click on the button `Generate new private key`. It will download a json file.
+<br />
+Rename the file as `serviceAcccountKey.json`.
+<br />
+Replace `/backend/serviceAcccountKey.json` with your new `serviceAcccountKey.json`.
+
+<p>&nbsp;</p>
+
+## Start backend server
+
+From project's root directory, **open a terminal** and run the following command:
 
 ```
-cd frontend
-npm i
-npm start
+npm run start-backend
 ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+It will leave you with the below information in the terminal.
+![alt text](./backend-serve-success.png)
+
+**Do not close this terminal. Otherwise backend will stop.**
+
+<p>&nbsp;</p>
+
+## Start frontend server
+
+From project's root directory, **open a new terminal** and run the following command:
+
+```
+npm run start-frontend
+```
+
+It will leave you with the below information in the terminal.
+![alt text](./frontend-serve-success.png)
+
+**Do not close this terminal. Otherwise frontend will stop.**
+
+<p>&nbsp;</p>
+
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
