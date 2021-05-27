@@ -4,12 +4,6 @@
 
 Install [https://nodejs.org/en/](NodeJS LTE version)
 
-Run the following command in terminal.
-
-```
-npm i -g serve
-```
-
 <p>&nbsp;</p>
 
 ## Setting up Firebase
