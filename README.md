@@ -65,4 +65,4 @@ It will leave you with the below information in the terminal.
 
 <p>&nbsp;</p>
 
-Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
