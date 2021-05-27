@@ -14,13 +14,22 @@ npm i -g serve
 
 ## Setting up Firebase
 
-Copy your firebase database url. Paste it in the `/backend/.env` file against key `FIREBASE_DATABASE_URL`. **Do not change the key.**
+Open your Firebase Console. Select your project and go to Project settings.
+<br />
+Select `General` tab. Scroll below and find `databaseURL` under `SDK setup and configuration`.
 
-Open your Firebase Console. Select your project. Go to Project settings and select Service accounts tab.
+![alt text](./firebase-database-url.png)
+
+Copy the value and paste it in the `/backend/.env` file against key `FIREBASE_DATABASE_URL`. **Do not change the key.**
+
+<p>&nbsp;</p>
+
+Select Service accounts tab and click on the button `Generate new private key`. It will download a json file.
+
+![alt text](./firebase-service-account.png)
+
 <br />
-Click on the button `Generate new private key`. It will download a json file.
-<br />
-Rename the file as `serviceAcccountKey.json`.
+Rename the downloaded file as `serviceAcccountKey.json`.
 <br />
 Replace `/backend/serviceAcccountKey.json` with your new `serviceAcccountKey.json`.
 
