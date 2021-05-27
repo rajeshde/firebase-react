@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start-backend": "cd backend && npm ci && npm run start",
-    "start-frontend": "cd frontend && npm ci && npm run build && serve -s build"
+    "start-backend": "cd backend && npm install && npm run start",
+    "start-frontend": "cd frontend && npm install && npm run build && serve -s build"
   }
 }
